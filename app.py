@@ -22,14 +22,17 @@ def get_first_model_each_manufacturer(cars=cars):
     return first_models
 
 
-print(get_first_model_each_manufacturer())
-
-
 def get_all_matching_models(cars=cars, grep='trail'):
     """return a list of all models containing the case insensitive
        'grep' string which defaults to 'trail' for this exercise,
        sort the resulting sequence alphabetically"""
-    pass
+    matching_models = []
+
+    for manufacturer, models in cars.items():
+        for model in models:
+            if grep in model.lower():
+                matching_models.append(model)
+    return matching_models
 
 
 def sort_car_models(cars=cars):
